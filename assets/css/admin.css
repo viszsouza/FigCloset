@@ -1,0 +1,83 @@
+/* =========================================================
+   VISZ Closet — Painel Administrativo
+   ========================================================= */
+
+.admin-body { background: var(--ivory-dim); min-height: 100vh; }
+
+.admin-shell { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+
+.admin-sidebar {
+    background: var(--ink);
+    color: var(--ivory);
+    padding: 28px 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+.admin-sidebar .logo { padding: 0 24px 24px; display: block; border-bottom: 1px solid var(--line-on-ink); margin-bottom: 16px; }
+.admin-sidebar nav a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 24px;
+    font-size: 0.88rem;
+    color: rgba(244,239,230,0.72);
+    border-left: 3px solid transparent;
+}
+.admin-sidebar nav a:hover { color: var(--ivory); background: rgba(244,239,230,0.04); }
+.admin-sidebar nav a.active { color: var(--ivory); border-left-color: var(--brass); background: rgba(244,239,230,0.06); }
+.admin-sidebar .admin-section-label {
+    padding: 18px 24px 8px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: rgba(244,239,230,0.4);
+}
+
+.admin-main { padding: 32px 40px; }
+.admin-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.admin-topbar h1 { font-size: 1.6rem; margin: 0; }
+.admin-topbar .admin-user { font-size: 0.85rem; color: var(--graphite-soft); }
+
+.admin-card { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 24px; }
+.admin-card + .admin-card { margin-top: 20px; }
+
+.admin-stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+.admin-stat { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 20px; }
+.admin-stat .num { font-family: var(--font-display); font-size: 1.9rem; color: var(--ink); }
+.admin-stat .label { font-size: 0.8rem; color: var(--graphite-soft); margin-top: 4px; }
+
+.admin-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; gap: 12px; flex-wrap: wrap; }
+
+.admin-table-wrap { overflow-x: auto; }
+table.admin-table { width: 100%; border-collapse: collapse; background: var(--white); font-size: 0.88rem; }
+table.admin-table th, table.admin-table td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.admin-table th { color: var(--graphite-soft); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.03em; }
+table.admin-table img.thumb { width: 40px; height: 52px; object-fit: cover; border-radius: 3px; }
+table.admin-table tr:hover { background: var(--ivory-dim); }
+
+.badge { display: inline-flex; padding: 4px 10px; border-radius: 999px; font-size: 0.74rem; background: var(--ivory-dim); color: var(--graphite); }
+.badge-ativo { background: #EAF3EA; color: #2E5A2E; }
+.badge-inativo { background: #FBEAEA; color: var(--wine-dark); }
+.badge-status { background: var(--ivory-dim); color: var(--graphite); }
+
+.action-links { display: flex; gap: 10px; }
+.action-links a, .action-links button { font-size: 0.82rem; color: var(--wine); background: none; border: none; cursor: pointer; padding: 0; }
+.action-links .danger { color: #b33; }
+
+.admin-login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--ink); }
+
+/* ---------- Calendário (rolagem horizontal no mobile em vez de espremer células) ---------- */
+
+.admin-calendar-scroll { overflow-x: auto; padding-bottom: 4px; }
+.admin-calendar-head, .admin-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    min-width: 640px;
+}
+.admin-calendar-head { font-size: 0.78rem; margin-bottom: 6px; color: var(--graphite-soft); }
+.admin-calendar-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; gap: 12px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+    .admin-shell { grid-template-columns: 1fr; }
+    .admin-sidebar { position: static; height: auto; }
+    .admin-stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .admin-main { padding: 20px; }
+}
